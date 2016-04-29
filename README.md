@@ -12,4 +12,14 @@ Password: spree123
 $ rake spree_auth:admin:create
 ```
 
+### Scraper
+**Install node.js libraries**
+```
+$ cd scraper
+$ npm install
+```
 
+**Run the program with output file name**
+```
+$ node scraper.js > output.csv
+```
