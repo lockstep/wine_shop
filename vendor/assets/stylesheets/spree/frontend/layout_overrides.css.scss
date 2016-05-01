@@ -1,0 +1,16 @@
+#spree-header {
+  background: image-url('header_bg.jpg') center center;
+  #header {
+    background: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #9c0d04;
+  border-color: #8c0d04;
+  &:hover, &.hover {
+    background-color: #8c0d04;
+    border-color: #7c0d04;
+  }
+}
