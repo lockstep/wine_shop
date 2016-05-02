@@ -1,0 +1,16 @@
+PATH
+  remote: .
+  specs:
+    wine_sample (0.0.1)
+
+GEM
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  wine_sample!
+
+BUNDLED WITH
+   1.12.1
