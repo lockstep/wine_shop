@@ -87,13 +87,13 @@ products.each do |product_attrs|
   end
   product.master.update(sku: sku, price: price)
   product.master.images.destroy_all
-  begin
-    file = StringIO.new(open(url) {|f| f.read })
-    product.master.images.destroy_all
-    product.master.images.create!(attachment: file)
-  rescue OpenURI::HTTPError, Net::OpenTimeout
-    puts url
-    next
-  end
+  # begin
+  #   file = StringIO.new(open(url) {|f| f.read })
+  #   product.master.images.destroy_all
+  #   product.master.images.create!(attachment: file)
+  # rescue OpenURI::HTTPError, Net::OpenTimeout
+  #   puts url
+  #   next
+  # end
 end
 

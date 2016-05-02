@@ -19,20 +19,27 @@ orders << Spree::Order.find_or_create_by(
   :shipping_address => Spree::Address.first,
   :billing_address => Spree::Address.last)
 
-orders[0].line_items.find_or_create_by(
-  :variant => Spree::Product.last.master,
-  :quantity => 1,
-  :price => 15.99)
 
-orders[1].line_items.find_or_create_by(
-  :variant => Spree::Product.last.master,
-  :quantity => 1,
-  :price => 22.99)
+o1 = orders[0]
+if o1.persisted? && o1.line_items.empty?
+  o1.line_items.create(
+    :variant => Spree::Product.last.master,
+    :quantity => 1,
+    :price => 15.99)
+end
+
+o2 = orders[1]
+if o2.persisted? && o2.line_items.empty?
+  o2.line_items.create(
+    :variant => Spree::Product.last.master,
+    :quantity => 1,
+    :price => 22.99)
+end
 
 orders.each(&:create_proposed_shipments)
 
 orders.each do |order|
   order.state = "complete"
   order.completed_at = Time.current - 1.day
-  order.save!
+  order.save
 end
