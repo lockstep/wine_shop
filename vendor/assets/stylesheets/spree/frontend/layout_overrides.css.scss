@@ -1,5 +1,9 @@
 #spree-header {
   background: image-url('header_bg.jpg') center center;
+  img {
+    position: relative;
+    top: 7px;
+  }
   #header {
     background: rgba(255, 255, 255, 0.6);
   }
@@ -9,7 +13,7 @@
   color: #fff;
   background-color: #9c0d04;
   border-color: #8c0d04;
-  &:hover, &.hover {
+  &:hover, &:active, &:focus, &.active, &.focus, &.hover {
     background-color: #8c0d04;
     border-color: #7c0d04;
   }
