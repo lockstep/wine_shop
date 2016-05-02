@@ -86,9 +86,10 @@ products.each do |product_attrs|
     v.option_values << sizes[i] if v.option_values.empty?
   end
   product.master.update(sku: sku, price: price)
-  next unless product.master.images.empty?
+  product.master.images.destroy_all
   begin
     file = StringIO.new(open(url) {|f| f.read })
+    product.master.images.destroy_all
     product.master.images.create!(attachment: file)
   rescue OpenURI::HTTPError, Net::OpenTimeout
     puts url
